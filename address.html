@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delivery Address</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Enter Delivery Address</h2>
+
+  <form id="addressForm">
+
+    <input type="text" id="name" placeholder="Full Name" required>
+
+    <label>Email</label>
+    <input type="text" id="email" placeholder="Enter your email" required>
+    <p id="emailError" class="error"></p>
+
+    <label>Phone</label>
+    <input type="text" id="phone" placeholder="Mobile Number" required>
+    <p id="phoneError" class="error"></p>
+
+    <input type="text" id="house" placeholder="House No / Flat No" required>
+    <input type="text" id="area" placeholder="Area / Street" required>
+    <input type="text" id="city" placeholder="City" required>
+    <input type="text" id="pincode" placeholder="Pincode" required>
+
+    <button type="submit">Save & Continue</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("addressForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+
+    let emailError = document.getElementById("emailError");
+    let phoneError = document.getElementById("phoneError");
+
+    let valid = true;
+
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!emailPattern.test(email)){
+        emailError.textContent = "Invalid Email Address";
+        valid = false;
+    } else {
+        emailError.textContent = "";
+    }
+
+    let phonePattern = /^[6-9]\d{9}$/;
+    if(!phonePattern.test(phone)){
+        phoneError.textContent = "Invalid Phone Number";
+        valid = false;
+    } else {
+        phoneError.textContent = "";
+    }
+
+    if(!valid) return;
+
+    const address = {
+        name: name.value,
+        email: email,
+        phone: phone,
+        house: house.value,
+        area: area.value,
+        city: city.value,
+        pincode: pincode.value
+    };
+
+    localStorage.setItem("address", JSON.stringify(address));
+    window.location.href = "payment.html";
+});
+</script>
+
+</body>
+</html>

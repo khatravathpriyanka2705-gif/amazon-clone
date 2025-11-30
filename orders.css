@@ -1,0 +1,40 @@
+body {
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+.orders-container {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 70px auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 27px;
+  color: #333;
+}
+
+.order {
+  margin: 18px 0;
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 18px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.order:hover {
+  background: #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#order-details {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #007185;
+}

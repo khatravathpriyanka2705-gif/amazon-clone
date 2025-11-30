@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Select Payment Method</h2>
+
+  <form id="paymentForm">
+    <label><input type="radio" name="pay" value="Cash On Delivery" required> Cash On Delivery</label><br><br>
+
+    <label><input type="radio" name="pay" value="UPI"> UPI / Google Pay</label><br><br>
+
+    <label><input type="radio" name="pay" value="Card"> Credit / Debit Card</label><br><br>
+
+    <button type="submit">Confirm Payment</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("paymentForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const method = document.querySelector("input[name='pay']:checked").value;
+    localStorage.setItem("payment", method);
+
+    window.location.href = "order-success.html";
+});
+</script>
+
+</body>
+</html>
